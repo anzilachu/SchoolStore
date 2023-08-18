@@ -4,6 +4,12 @@
 
 {% block content %}
 <main>
-    <h4 class="order">Your order is confirmed !!</h4>
+  {% if messages %}
+    <ul class="messages newt">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </main>
 {% endblock %}

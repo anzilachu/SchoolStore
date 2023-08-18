@@ -65,11 +65,24 @@ def studentform(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Order Confirmed')
             return redirect('new')
-    context={
-        'form':form,
+    context = {
+        'form': form,
     }
-    return render(request,'studentreg.html',context)
+    return render(request, 'studentreg.html', context)
+
+# def studentform(request):
+#     form = StudentForm()
+#     if request.method == 'POST':
+#         form = StudentForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('new')
+#     context={
+#         'form':form,
+#     }
+#     return render(request,'studentreg.html',context)
 
 def load_cities(request):
     department_id = request.GET.get('department_id')
