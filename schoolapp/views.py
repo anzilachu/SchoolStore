@@ -14,8 +14,8 @@ from django.contrib.auth import authenticate, login, logout
 def home(request):
     return render(request,"index.html")
 
-# def new(request):
-#     return render(request,"new.html")
+def new(request):
+    return render(request,"new.html")
 
 def loginPage(request):
     page = 'login'
@@ -65,7 +65,7 @@ def studentform(request):
         form = StudentForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Order Confirmed')
+            return redirect('new')
     context={
         'form':form,
     }
