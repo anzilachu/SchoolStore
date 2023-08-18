@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for c in course %}
+<option value="{{ c.pk }}">{{ c.name }}</option>
+{% endfor %}

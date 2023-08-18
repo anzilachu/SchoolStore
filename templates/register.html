@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Enter Username" />
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter Password" />
+
+        <label>Confirm password</label>
+        <input type="password" name="cpassword" placeholder="Enter Password again" />
+
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{message}}</li>
+    {% endfor %}
+{% endblock %}
