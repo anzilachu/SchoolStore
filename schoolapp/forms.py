@@ -25,7 +25,7 @@ from .models import Student, Department, Course , Material
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = '__all__'
+        fields = ['name','age','gender','mail_id','address','phone_number','dob','department','course','purpose','materials'] 
 
     materials = forms.ModelMultipleChoiceField(
         queryset=Material.objects.all(),
